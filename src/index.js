@@ -1,8 +1,9 @@
 'use strict';
 
-module.exports = function(options){
-  return {
-    getMrz: require('./getMrz'),
-    readMrz: require('./readMrz')(options)
-  }
+const getMrz = require('./getMrz');
+const readMrzFactory = require('./readMrz');
+
+module.exports = {
+    getMrz,
+    readMrz: (options) => readMrzFactory(options),
 };
